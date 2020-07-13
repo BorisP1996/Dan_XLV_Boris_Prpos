@@ -79,7 +79,8 @@ namespace Zadatak_1.ViewModel
                         newStorage.ProductID = Product.ProductID;
                         newStorage.Price = Product.Amount;
                         context.tblStorages.Add(newStorage);
-                        Product.Stored = true;
+                        tblProduct productToStore = (from r in context.tblProducts where r.ProductID == Product.ProductID select r).First();
+                        productToStore.Stored = true;
                         context.SaveChanges();
                         MessageBox.Show("Product is stored in warehouse");
                     }
