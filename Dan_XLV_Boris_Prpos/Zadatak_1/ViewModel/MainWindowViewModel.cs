@@ -67,7 +67,8 @@ namespace Zadatak_1.ViewModel
                 //iz admin is logged
                 if (Username == "Mag2019" && Password == "Mag2019")
                 {
-                    MessageBox.Show("Magacioner");
+                    MagView magView = new MagView();
+                    magView.ShowDialog();
                 }
                 //if user is logged
                 else if (Username=="Man2019" && Password=="Man2019")

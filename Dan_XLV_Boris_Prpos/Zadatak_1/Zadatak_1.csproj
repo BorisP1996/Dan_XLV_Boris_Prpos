@@ -64,9 +64,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\MagViewModel.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="ViewModel\ManViewModel.cs" />
     <Compile Include="ViewModel\ViewModelBase.cs" />
+    <Compile Include="View\MagView.xaml.cs">
+      <DependentUpon>MagView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\ManView.xaml.cs">
       <DependentUpon>ManView.xaml</DependentUpon>
     </Compile>
@@ -83,6 +87,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="View\MagView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\ManView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
