@@ -1,0 +1,9 @@
+[13-07-2020]Manager added material:{0}Drvo
+[13-07-2020, 17:39:28] Manager added product: Metal
+[13-07-2020, 17:47:16] Manager added product: Metal
+[13-07-2020, 17:47:20] Manager added product: Metal
+[13-07-2020, 17:48:51] Manager added product: Metal
+[13-07-2020, 17:48:54] Manager added product: Metal
+[13-07-2020, 17:48:56] Manager deleted product: Metal
+[13-07-2020, 17:48:59] Manager deleted product: Metal
+[13-07-2020, 17:54:53] Manager added product: Rigips

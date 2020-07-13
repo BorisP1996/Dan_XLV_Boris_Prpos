@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using Zadatak_1.Command;
@@ -64,13 +60,13 @@ namespace Zadatak_1.ViewModel
         {
             try
             {
-                //iz admin is logged
+                //if magacioner is logged
                 if (Username == "Mag2019" && Password == "Mag2019")
                 {
                     MagView magView = new MagView();
                     magView.ShowDialog();
                 }
-                //if user is logged
+                //if manager is logged
                 else if (Username=="Man2019" && Password=="Man2019")
                 {
                     ManView manView = new ManView();

@@ -88,7 +88,7 @@
                       BorderBrush="Black"
                       Foreground="Black"
                       FontWeight="Bold"
-                  Margin="335,66,27,154">
+                  Margin="390,67,77,84">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="Product name"
                                         Binding="{Binding ProdName}" />
@@ -101,20 +101,11 @@
                 <DataGridTextColumn  Header="Stored"
                                      Binding="{Binding Stored}" />
                 <DataGridTemplateColumn>
-                        <DataGridTemplateColumn.CellTemplate>
-                            <DataTemplate>
-                                <Button  Command="{Binding Path=DataContext.Delete, RelativeSource= {RelativeSource FindAncestor,
-                                       AncestorType={x:Type DataGrid}},UpdateSourceTrigger=PropertyChanged}"
-                                         Content="Delete" />
-                            </DataTemplate>
-                        </DataGridTemplateColumn.CellTemplate>
-                    </DataGridTemplateColumn>
-                <DataGridTemplateColumn>
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Button  Command="{Binding Path=DataContext.Reject, RelativeSource= {RelativeSource FindAncestor,
+                            <Button  Command="{Binding Path=DataContext.Delete, RelativeSource= {RelativeSource FindAncestor,
                                        AncestorType={x:Type DataGrid}},UpdateSourceTrigger=PropertyChanged}"
-                                     Content="Reject" />
+                                     Content="Delete" />
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

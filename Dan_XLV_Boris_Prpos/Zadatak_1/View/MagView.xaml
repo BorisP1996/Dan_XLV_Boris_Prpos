@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zadatak_1.View"
         mc:Ignorable="d"
-        Title="MagView" Height="450" Width="800">
+        Title="MagView"
+        Height="450"
+        Width="800">
     <Grid>
         <DataGrid Name="DataGridUsers"
                   ItemsSource="{Binding ListProduct, UpdateSourceTrigger=PropertyChanged}"
@@ -17,7 +19,7 @@
                   BorderBrush="Black"
                   Foreground="Black"
                   FontWeight="Bold"
-                  Margin="90,66,147,104">
+                  Margin="90,65,377,105">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Product name"
                                     Binding="{Binding ProdName}" />
@@ -46,6 +48,29 @@
                Margin="90,10,0,0"
                Width="245"
                FontWeight="Heavy"
-               FontSize="20"/>
+               FontSize="20" />
+        <Label Content="Warehouse capacity:"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="430,115,0,0"
+               Width="120" />
+        <TextBox HorizontalAlignment="Left"
+                 Height="23"
+                 TextWrapping="Wrap"
+                 Text="{Binding Suma,UpdateSourceTrigger=PropertyChanged}"
+                 VerticalAlignment="Top"
+                 Width="45"
+                 Margin="555,119,0,0" />
+        <Label Content="/ 100"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="605,116,0,0"
+               Width="48" />
+        <Button Content="Close"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Width="75"
+                Margin="205,345,0,0"
+                Command="{Binding Close,UpdateSourceTrigger=PropertyChanged}"/>
     </Grid>
 </Window>
