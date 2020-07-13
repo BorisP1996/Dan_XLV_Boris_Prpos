@@ -18,6 +18,7 @@ namespace Zadatak_1.ViewModel
         public ManViewModel(ManView manViewOpen)
         {
             manView = manViewOpen;
+            listProduct = GetProducts();
         }
 
         private tblProduct product;
@@ -143,6 +144,7 @@ namespace Zadatak_1.ViewModel
                     context.tblProducts.Add(newProduct);
                     context.SaveChanges();
                     MessageBox.Show("Product is saved");
+                    ListProduct = GetProducts();
                 }
             }
             catch (Exception ex)
@@ -182,6 +184,80 @@ namespace Zadatak_1.ViewModel
         private bool CanCloseExecute()
         {
             return true;
+        }
+        private ICommand delete;
+        public ICommand Delete
+        {
+            get
+            {
+                if (delete==null)
+                {
+                    delete = new RelayCommand(param => DeleteExecute(), param => CanDeleteExecute());
+                }
+                return delete;
+            }
+        }
+        private void DeleteExecute()
+        {
+            try
+            {
+                using (Context context = new Context())
+                {
+                    List<int> listOfKeys = new List<int>();
+                    List<tblStorage> storageList = context.tblStorages.ToList();
+                    foreach (tblStorage item in storageList)
+                    {
+                        listOfKeys.Add(item.ProductID.GetValueOrDefault());
+                    }
+                    if (!listOfKeys.Contains(Product.ProductID))
+                    {
+                        tblProduct productToRemove = (from x in context.tblProducts where x.ProductID == Product.ProductID select x).First();
+                        context.tblProducts.Remove(productToRemove);
+                        context.SaveChanges();
+                        MessageBox.Show("Product is deleted");
+                        ListProduct = GetProducts();
+                    }
+                    else
+                    {
+                        MessageBox.Show("It is not possible to delete stored product.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.ToString());
+            }
+        }
+        private bool CanDeleteExecute()
+        {
+            if (Product != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private List<tblProduct> GetProducts()
+        {
+            try
+            {
+                using (Context context = new Context())
+                {
+                    List<tblProduct> list = new List<tblProduct>();
+
+                    list = context.tblProducts.ToList();
+                    return list;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                return null;
+            }
         }
     }
 }

@@ -77,5 +77,56 @@
                 Width="75"
                 Margin="185,345,0,0"
                 Command="{Binding Close,UpdateSourceTrigger=PropertyChanged}"/>
+        
+            <DataGrid Name="DataGridUsers"
+                      ItemsSource="{Binding ListProduct, UpdateSourceTrigger=PropertyChanged}"
+                      SelectedItem="{Binding Product, UpdateSourceTrigger=PropertyChanged}"
+                      IsReadOnly="True"
+                      HeadersVisibility="Column"
+                      AutoGenerateColumns="False"
+                      HorizontalGridLinesBrush="Black"
+                      BorderBrush="Black"
+                      Foreground="Black"
+                      FontWeight="Bold"
+                  Margin="335,66,27,154">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Product name"
+                                        Binding="{Binding ProdName}" />
+                    <DataGridTextColumn Header="Code"
+                                        Binding="{Binding ProdCode}" />
+                    <DataGridTextColumn Header="Amount"
+                                        Binding="{Binding Amount}" />
+                    <DataGridTextColumn Header="Price"
+                                        Binding="{Binding Price}" />
+                <DataGridTextColumn  Header="Stored"
+                                     Binding="{Binding Stored}" />
+                <DataGridTemplateColumn>
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button  Command="{Binding Path=DataContext.Delete, RelativeSource= {RelativeSource FindAncestor,
+                                       AncestorType={x:Type DataGrid}},UpdateSourceTrigger=PropertyChanged}"
+                                         Content="Delete" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button  Command="{Binding Path=DataContext.Reject, RelativeSource= {RelativeSource FindAncestor,
+                                       AncestorType={x:Type DataGrid}},UpdateSourceTrigger=PropertyChanged}"
+                                     Content="Reject" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            </DataGrid>
+        
+        <Label Content="Product evidention"
+               HorizontalAlignment="Left"
+               VerticalAlignment="Top"
+               Margin="475,25,0,0"
+               Width="165"
+               FontWeight="UltraBlack"
+               FontSize="16" />
     </Grid>
 </Window>
